@@ -8,10 +8,15 @@ const setDate = () => {
     const now = new Date();
     const seconds = now.getSeconds(); // Getting the seconds of the current time
     const minuts = now.getMinutes();
+    const hours = now.getHours();
+    
     const secondsDegrees = ((seconds / 60)  * 360) + 90 ; // Getting seconds percentage to rotate the seconds hand with (90 to get it on with the starting offset)
     const minutsDegrees = ((minuts / 60)  * 360) + 90 ;
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+    const hoursDegrees = ((hours / 12)  * 360) + 90 ;
+    
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`; // Rotating the seconds hand according to the current time with the appropreiate degree
     minutHand.style.transform = `rotate(${minutsDegrees}deg)`;
+    hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
 }
 
 setInterval(setDate, 1000);

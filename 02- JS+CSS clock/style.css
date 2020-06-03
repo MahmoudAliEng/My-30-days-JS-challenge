@@ -56,11 +56,10 @@ html {
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); /* To add beautiful effect to the hand when moving */
   }
  
-  /* .hour-hand:hover {
-    
+   .hour-hand {
+     height: 12px;
   }
 
   .min-hand {
-      
-      
-  } */
+      height: 8px;
+  } 
