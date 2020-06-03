@@ -50,12 +50,17 @@ html {
     background: black;
     position: absolute;
     top: 50%;
+    transform-origin: 100%; /* the default is 50% */
+    transform: rotate(90deg); /* To make hands start from 12 clock */
+    transition: transform .05s; /* Add a transition when making the transform  with a duration of .05s*/
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); /* To add beautiful effect to the hand when moving */
   }
-
-  .hour-hand {
-      width: 30%;
+ 
+  /* .hour-hand:hover {
+    
   }
 
   .min-hand {
-      width: 40%;
-  }
+      
+      
+  } */
