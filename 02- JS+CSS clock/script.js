@@ -1,3 +1,5 @@
+// Selec the 3 hands at a time
+const hand = document.querySelector('.hand');
 // Select the second hand
 const secondHand = document.querySelector('.second-hand');
 // Select the minut hand
@@ -10,6 +12,15 @@ const setDate = () => {
     const minuts = now.getMinutes();
     const hours = now.getHours();
     
+    if (seconds === 1 || minuts === 1 || hours === 1) {
+        /* hand.style.transition = 'none';
+        hand.style.transform = 'none'; */
+        hand.style.transition = 'none';
+        console.log(seconds);
+        console.log(minuts);
+        console.log(hours);
+    }
+
     const secondsDegrees = ((seconds / 60)  * 360) + 90 ; // Getting seconds percentage to rotate the seconds hand with (90 to get it on with the starting offset)
     const minutsDegrees = ((minuts / 60)  * 360) + 90 ;
     const hoursDegrees = ((hours / 12)  * 360) + 90 ;
