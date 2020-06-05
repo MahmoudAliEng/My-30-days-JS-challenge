@@ -30,9 +30,13 @@
       // 2. Give us an array of the inventors first and last names
       const secondQuest = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
       console.table(secondQuest);
+
+
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
-  
+      const thirdQuest = inventors.sort((inventor1, inventor2) => inventor1.year - inventor2.year);
+      console.table(thirdQuest);
+      
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
   
