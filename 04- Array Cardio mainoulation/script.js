@@ -37,9 +37,19 @@
       const thirdQuest = inventors.sort((inventor1, inventor2) => inventor1.year - inventor2.year);
       console.table(thirdQuest);
       
+
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
-  
+      let totalLives = 0;
+      inventors.forEach(inventor => totalLives += (inventor.passed - inventor.year));
+      // Another magic way to do it is using the reduce method
+      const totalYears = inventors.reduce((total, inventor) => {
+          return total + (inventor.passed - inventor.year)
+        }, 0); // 0 is the initial value of total
+
+      console.log(totalLives);
+      console.log(totalYears);
+
       // 5. Sort the inventors by years lived
   
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
