@@ -62,10 +62,12 @@
       
       // An alternative of converting a NodeList to an array is by the Array.from() method
       //  const boulevards = Array.from(document.querySelectorAll('.mw-category a'));
-      console.log(boulevards);
+      
+      /* console.log(boulevards); */
 
       const de = boulevards.map(boulevard => boulevard.textContent).filter(streetName => streetName.includes('de'));
-      console.log(de);
+      
+      /* console.log(de); */
   
       // 7. sort Exercise
       // Sort the people alphabetically by last name
@@ -91,7 +93,7 @@
 
 // ## Array Cardio Day 2
 
-const people = [
+const persons = [
   { name: 'Wes', year: 1988 },
   { name: 'Kait', year: 1986 },
   { name: 'Irv', year: 1970 },
@@ -108,13 +110,6 @@ const comments = [
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-// Array.prototype.every() // is everyone 19 or older?
-
-// Array.prototype.find()
-// Find is like filter, but instead returns just the one you are looking for
-// find the comment with the ID of 823423
-
-// Array.prototype.findIndex()
-// Find the comment with this ID
-// delete the comment with the ID of 823423
+const thereIsAdult = persons.some(person => ((new Date()).getFullYear() - person.year) >= 18);
+console.log(thereIsAdult); // Should return true
 
