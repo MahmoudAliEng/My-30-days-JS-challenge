@@ -123,4 +123,16 @@ console.log(isAllAdults); // Should return false
 const comment = comments.find(c => c.id === 823423);
 console.log(comment); // Should return the second comment in the array
 
-
+// Array.prototype.findIndex()
+// Find the comment with this ID
+// delete the comment with the ID of 823423
+const commentIdx = comments.findIndex(c => c.id === 823423);
+console.log(commentIdx); // Should return 1
+comments.splice(commentIdx, 1); // Remove one element at the position commentIdx
+// Second way to do it is with slicing and spread operation
+const newComments = [
+  ...comments.slice(0, commentIdx),
+  ...comments.slice(commentIdx+1)
+];
+console.table(comments);
+console.table(newComments);
