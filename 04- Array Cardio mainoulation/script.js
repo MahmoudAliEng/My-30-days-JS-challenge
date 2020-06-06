@@ -74,8 +74,17 @@
           const [last2, first2] = person2.split(', '); // Do smae thing with person 2
           return last1 < last2 ? -1 : 1;
       });
-      console.table(seventhQuest);
+      /* console.table(seventhQuest); */
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
       const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+      // This consist of counting the number of occurrence of each word here
+      const eighthQuest = data.reduce((words, item) => { 
+          if(!words[item]) {words[item] = 0;}
+          words[item]++;
+          return words;
+      }, {
+    });
+
+    console.log(eighthQuest);
