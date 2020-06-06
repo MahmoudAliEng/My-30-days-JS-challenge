@@ -117,4 +117,10 @@ console.log(thereIsAdult); // Should return true
 const isAllAdults = persons.every(person => ((new Date()).getFullYear() - person.year) >= 18);
 console.log(isAllAdults); // Should return false
 
+// Array.prototype.find()
+// Find is like filter, but instead returns just the one you are looking for
+// find the comment with the ID of 823423
+const comment = comments.find(c => c.id === 823423);
+console.log(comment); // Should return the second comment in the array
+
 
