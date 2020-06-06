@@ -113,3 +113,8 @@ const comments = [
 const thereIsAdult = persons.some(person => ((new Date()).getFullYear() - person.year) >= 18);
 console.log(thereIsAdult); // Should return true
 
+// Array.prototype.every() // is everyone 19 or older?
+const isAllAdults = persons.every(person => ((new Date()).getFullYear() - person.year) >= 18);
+console.log(isAllAdults); // Should return false
+
+
