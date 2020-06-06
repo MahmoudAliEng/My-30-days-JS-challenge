@@ -69,7 +69,13 @@
   
       // 7. sort Exercise
       // Sort the people alphabetically by last name
-  
+      const seventhQuest = people.sort((person1, person2) => {
+          const [last1, first1] = person1.split(', '); // Split the names with commas and store last and first names into 2 variables
+          const [last2, first2] = person2.split(', '); // Do smae thing with person 2
+          return last1 < last2 ? -1 : 1;
+      });
+      console.table(seventhQuest);
+
       // 8. Reduce Exercise
       // Sum up the instances of each of these
       const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
