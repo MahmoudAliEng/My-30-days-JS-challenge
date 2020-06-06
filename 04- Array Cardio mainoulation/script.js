@@ -52,11 +52,20 @@
 
       // 5. Sort the inventors by years lived decendently
       const fifthQuest = inventors.sort((inventor1, inventor2) => (inventor2.passed - inventor2.year) - (inventor1.passed - inventor1.year))
-      console.table(fifthQuest);
+      /* console.table(fifthQuest); */
   
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-  
+      
+      // Converting Nodelist object returned by the querySelectorAll to an Array using the new spread operator (ES6)
+      const boulevards = [...document.querySelectorAll('.mw-category a')];
+      
+      // An alternative of converting a NodeList to an array is by the Array.from() method
+      //  const boulevards = Array.from(document.querySelectorAll('.mw-category a'));
+      console.log(boulevards);
+
+      const de = boulevards.map(boulevard => boulevard.textContent).filter(streetName => streetName.includes('de'));
+      console.log(de);
   
       // 7. sort Exercise
       // Sort the people alphabetically by last name
