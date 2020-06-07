@@ -180,5 +180,65 @@ storyWords.forEach (word => {
 // Return the string array to a text
 console.log(betterWords.join(' ')); */
 
+// Make intersection between two arrays
+const  justCoolStuff = (array1, array2) => {
+  let res = array1.filter( x => {
+    if(array2.indexOf(x) != -1) {
+      return x
+      }
+    
+    })
+    return res;
+}
+
+
+const coolStuff = ['gameboys', 'skateboards', 'backwards hats', 'fruit-by-the-foot', 'pogs', 'my room', 'temporary tattoos'];
+
+const myStuff = [ 'rules', 'fruit-by-the-foot', 'wedgies', 'sweaters', 'skateboards', 'family-night', 'my room', 'braces', 'the information superhighway']; 
+
+/* console.log(justCoolStuff(myStuff, coolStuff)); // Should print [ 'fruit-by-the-foot', 'skateboards', 'my room'  */
+
+
+const isTheDinnerVegan = array => {
+  let res = array.filter(x => x.source !== 'plant');
+  return (res.length === 0);
+  };
+
+
+// Feel free to comment out the code below to test your function
+
+const dinner = [{
+  name: 'hamburger', source: 'meat'}, {name: 'cheese', source: 'dairy'}, {name: 'ketchup', source:'plant'}, {name: 'bun', source: 'plant'}, {name: 'dessert twinkies', source:'unknown'}];
+
+/* console.log(isTheDinnerVegan(dinner))
+// Should print false */
+
+const speciesArray = [ {speciesName:'shark', numTeeth:50}, {speciesName:'dog', numTeeth:42}, {speciesName:'alligator', numTeeth:80}, {speciesName:'human', numTeeth:32}];
+
+// Write your code here:
+
+const sortSpeciesByTeeth = array => array.sort( (a,b) => {
+  if(a.numTeeth < b.numTeeth) {
+    return -1;
+  }
+  if(a.numTeeth > b.numTeeth) {
+    return 1;
+  }
+  if(a.numTeeth === b.numTeeth) {
+    return 0;
+  }
+})
+
+// Feel free to comment out the code below when you're ready to test your function!
+
+console.log(sortSpeciesByTeeth(speciesArray));
+/*
+// Should print [ { speciesName: 'human', numTeeth: 32 },
+  { speciesName: 'dog', numTeeth: 42 },
+  { speciesName: 'shark', numTeeth: 50 },
+  { speciesName: 'alligator', numTeeth: 80 } ]
+
+*/
+
 
 
