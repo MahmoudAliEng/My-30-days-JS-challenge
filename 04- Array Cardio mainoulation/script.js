@@ -111,28 +111,74 @@ const comments = [
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
 const thereIsAdult = persons.some(person => ((new Date()).getFullYear() - person.year) >= 18);
-console.log(thereIsAdult); // Should return true
+/* console.log(thereIsAdult); // Should return true */
 
 // Array.prototype.every() // is everyone 19 or older?
 const isAllAdults = persons.every(person => ((new Date()).getFullYear() - person.year) >= 18);
-console.log(isAllAdults); // Should return false
+/* console.log(isAllAdults); // Should return false */
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
 const comment = comments.find(c => c.id === 823423);
-console.log(comment); // Should return the second comment in the array
+/* console.log(comment); // Should return the second comment in the array */
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
 const commentIdx = comments.findIndex(c => c.id === 823423);
-console.log(commentIdx); // Should return 1
+/* console.log(commentIdx); // Should return 1 */
 comments.splice(commentIdx, 1); // Remove one element at the position commentIdx
 // Second way to do it is with slicing and spread operation
 const newComments = [
   ...comments.slice(0, commentIdx),
   ...comments.slice(commentIdx+1)
 ];
-console.table(comments);
+/* console.table(comments);
 console.table(newComments);
+ */
+
+let story = 'Last weekend, I took literally the most beautiful bike ride of my life. The route is called "The 9W to Nyack" and it actually stretches all the way from Riverside Park in Manhattan to South Nyack, New Jersey. It\'s really an adventure from beginning to end! It is a 48 mile loop and it basically took me an entire day. I stopped at Riverbank State Park to take some extremely artsy photos. It was a short stop, though, because I had a really long way left to go. After a quick photo op at the very popular Little Red Lighthouse, I began my trek across the George Washington Bridge into New Jersey.  The GW is actually very long - 4,760 feet! I was already very tired by the time I got to the other side.  An hour later, I reached Greenbrook Nature Sanctuary, an extremely beautiful park along the coast of the Hudson.  Something that was very surprising to me was that near the end of the route you actually cross back into New York! At this point, you are very close to the end.';
+
+let overusedWords = ['really', 'very', 'basically'];
+
+let unnecessaryWords = ['extremely', 'literally', 'actually' ];
+
+let storyWords = story.split(" ");
+
+// Removing unecessary words
+let betterWords = storyWords.filter( word => {
+  if (unnecessaryWords.indexOf(word) === -1) {
+    return word;
+  }
+} );
+
+// Count number of occuerence for some words
+let countOverused = [0, 0, 0];
+storyWords.forEach( word => {
+  if (overusedWords.indexOf(word) != -1){
+    countOverused[overusedWords.indexOf(word)]++;
+  }
+});
+
+/* // After removing unecessary words
+console.log(betterWords.length);
+// Counting over used words occurences
+console.log(countOverused);
+ */
+
+ // Count sentences of the paragraph
+let remarks = ['.', '!', '?'];
+let countSentences = 0;
+storyWords.forEach (word => {
+  if(remarks.indexOf(word[word.length - 1]) != -1){
+    countSentences++;
+  }
+});
+
+/* console.log(countSentences);
+// Return the string array to a text
+console.log(betterWords.join(' ')); */
+
+
+
