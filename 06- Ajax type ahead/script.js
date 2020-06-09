@@ -21,3 +21,24 @@ function findMatches(wordMatch, cities) {
     });
 }
 
+// Function that fill the result in HTML format
+function displayResults(e){
+    const matchArray = findMatches(this.value, cities);
+    console.log(e.type);
+    const returnedHTML = matchArray.map(place => {
+        const regex = new RegExp(this.value, 'gi');// To highlight the researched value in the resultes
+        const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+        const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+        return `<li>
+                    <span class= "name">${cityName}, ${stateName} </span>
+                    <span class="population"> ${place.population} </span>
+                </li>`; 
+
+    }).join(''); // To convert the map returned result from array to a string 
+
+    suggestions.innerHTML = returnedHTML;
+}
+
+
+searchInput.addEventListener('change', displayResults);
+searchInput.addEventListener('keyup', displayResults);
