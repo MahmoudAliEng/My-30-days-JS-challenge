@@ -57,6 +57,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 
   .panel > *:first-child {transform: translateY(-100%);}

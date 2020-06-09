@@ -40,7 +40,10 @@
     const panel = document.querySelectorAll('.panel');
 
     function toggleOpen() {
+      
       this.classList.toggle('open');
+      console.log('toggle open');
+      
     }
 
     // Because we have 2 transformation in this transition we need to specify one of them on whitch we call our function
@@ -49,6 +52,7 @@
       // For all browsers we track the flex-grow tranformation but in safari it calls it flex that's why we verify if it contains flex word
       if (e.propertyName.includes('flex')) {
         this.classList.toggle('open-active');
+        
       }
       
     }
