@@ -21,6 +21,11 @@ function findMatches(wordMatch, cities) {
     });
 }
 
+// Adds commas after each 3 numbers - US number style -
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
 // Function that fill the result in HTML format
 function displayResults(e){
     const matchArray = findMatches(this.value, cities);
@@ -31,7 +36,7 @@ function displayResults(e){
         const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
         return `<li>
                     <span class= "name">${cityName}, ${stateName} </span>
-                    <span class="population"> ${place.population} </span>
+                    <span class="population"> ${numberWithCommas(place.population)} </span>
                 </li>`; 
 
     }).join(''); // To convert the map returned result from array to a string 
