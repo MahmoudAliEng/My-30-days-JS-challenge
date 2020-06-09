@@ -8,3 +8,11 @@ const cities = [];
 fetch(endpoint)
    .then(blob => blob.json())
    .then(data => cities.push(...data));
+
+// Function that return the matches cities or states case-insensative for a research word
+function findMatches(wordMatch, cities) {
+    return cities.filter(place => {
+        let regex = new RegExp(wordMatch, 'gi');
+        return place.state.match(regex) || place.city.match(regex);
+    });
+}
