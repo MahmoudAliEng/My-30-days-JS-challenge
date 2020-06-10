@@ -44,6 +44,11 @@ function displayResults(e){
     suggestions.innerHTML = returnedHTML;
 }
 
+// TODO 
+// Display how many results are matched to the searched word
+// Hide the list before search and after selecting the desired result
+// Sord the result with their population or other criteria
+// Add filter in the search bar
 
 searchInput.addEventListener('change', displayResults);
 searchInput.addEventListener('keyup', displayResults);
