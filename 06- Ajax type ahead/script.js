@@ -30,6 +30,7 @@ function numberWithCommas(x) {
 function displayResults(e){
     const matchArray = findMatches(this.value, cities);
     console.log(e.type);
+    suggestions.style.visibility = "visible";
     const returnedHTML = matchArray.map(place => {
         const regex = new RegExp(this.value, 'gi');// To highlight the researched value in the resultes
         const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
