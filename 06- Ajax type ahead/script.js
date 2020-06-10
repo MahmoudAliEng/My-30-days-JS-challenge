@@ -41,13 +41,15 @@ function displayResults(e){
                 </li>`; 
 
     }).join(''); // To convert the map returned result from array to a string 
-
     suggestions.innerHTML = returnedHTML;
+    if (e.target.value === '' || e.target.value === undefined){
+        suggestions.style.visibility = "hidden";
+    }
 }
 
 // TODO 
 // Display how many results are matched to the searched word
-// Hide the list before search and after selecting the desired result
+// #Done#  Hide the list before search and after selecting the desired result
 // Sord the result with their population or other criteria
 // Add filter in the search bar
 
