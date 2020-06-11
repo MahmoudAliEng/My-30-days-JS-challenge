@@ -1,7 +1,8 @@
 html {
   box-sizing: border-box;
   background: #ffc600;
-  font-family: 'helvetica neue';
+/*   font-family: 'helvetica neue'; */
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
   font-weight: 200;
 }
@@ -72,5 +73,26 @@ span.population {
 
 .hl {
   background: #ffc600;
+}
+
+.custom-search {
+border: 10px solid deeppink;
+border-radius: 15px;
+  max-width: 50%;
+  height: 15vh;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.custom-search label, .custom-search input{
+  cursor: pointer;
+}
+
+.custom-search label{
+  width: 100%;
 }
 

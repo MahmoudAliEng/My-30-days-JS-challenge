@@ -1,9 +1,12 @@
 // A url to a JSON data (an array) of 1000 US cities
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
-// Linking the  search bar and the suggestions list
+// Linking the  search bar, the suggestions list and the radio buttons
 const searchInput = document.querySelector('.search');
 const suggestions = document.querySelector('.suggestions');
+const sortSearchPop = document.getElementById('sortSearchPop');
+const sortSearchCity = document.querySelector('#sortSearchCity');
+const sortSearchState = document.getElementById('sortSearchState');
 
 // The coming data from the web
 const cities = [];
@@ -29,7 +32,21 @@ function numberWithCommas(x) {
 // Function that fill the result in HTML format
 function displayResults(e){
     const matchArray = findMatches(this.value, cities);
-    console.log(e.type);
+    if(sortSearchCity.checked){
+        
+        matchArray.sort((a, b) => (a.city < b.city) ? -1: 1  );
+    }
+    if(sortSearchState.checked){
+        
+        matchArray.sort((a, b) => (a.state < b.state) ? -1: 1  );
+    }
+    if(sortSearchPop.checked){
+        
+        matchArray.sort((a, b) => a.population - b.population);
+    }
+    
+    
+    
     suggestions.style.visibility = "visible";
     const returnedHTML = matchArray.map(place => {
         const regex = new RegExp(this.value, 'gi');// To highlight the researched value in the resultes
@@ -42,6 +59,8 @@ function displayResults(e){
 
     }).join(''); // To convert the map returned result from array to a string 
     suggestions.innerHTML = returnedHTML;
+    //searchInput.value += `\t${numberWithCommas(matchArray.length)}`;
+    console.log(matchArray.length);
     if (e.target.value === '' || e.target.value === undefined){
         suggestions.style.visibility = "hidden";
     }

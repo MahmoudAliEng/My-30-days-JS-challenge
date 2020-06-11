@@ -3,12 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Type Ahead 👀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
+  <div class="custom-search">
+    
+      <label>Sort by:</label>
+      <input type="radio" name="population" id="sortSearchPop"  value="Population">
+      <label for="sortSearchPop">Population</label>
+      <input type="radio" name="population" id="sortSearchCity"  value="City Name">
+      <label for="sortSearchCity">City Name</label>
+      <input type="radio" name="population" id="sortSearchState"  value="State Name">
+      <label for="sortSearchState">State Name</label>
+
+  </div>
+    
   <form class="search-form">
-    <input id="search" type="text" class="search" placeholder="City or State" autocomplete="off">
+    <input type="text" class="search" placeholder="City or State" autocomplete="off">
     <ul class="suggestions">
       <li>Filter for a city</li>
       <li>or a state</li>
