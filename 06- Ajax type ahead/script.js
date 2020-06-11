@@ -7,9 +7,11 @@ const suggestions = document.querySelector('.suggestions');
 const sortSearchPop = document.getElementById('sortSearchPop');
 const sortSearchCity = document.querySelector('#sortSearchCity');
 const sortSearchState = document.getElementById('sortSearchState');
+const resultNumSpan = document.getElementById("number-results-span");
 
 // The coming data from the web
 const cities = [];
+let matchArray = [];
 
 // Fetching JSON data from URL and put it in a new array
 fetch(endpoint)
@@ -31,18 +33,16 @@ function numberWithCommas(x) {
 
 // Function that fill the result in HTML format
 function displayResults(e){
-    const matchArray = findMatches(this.value, cities);
+    matchArray = findMatches(this.value, cities);
+    
     if(sortSearchCity.checked){
-        
         matchArray.sort((a, b) => (a.city < b.city) ? -1: 1  );
     }
     if(sortSearchState.checked){
-        
         matchArray.sort((a, b) => (a.state < b.state) ? -1: 1  );
     }
     if(sortSearchPop.checked){
-        
-        matchArray.sort((a, b) => a.population - b.population);
+        matchArray.sort((a, b) => b.population - a.population);
     }
     
     
@@ -60,17 +60,33 @@ function displayResults(e){
     }).join(''); // To convert the map returned result from array to a string 
     suggestions.innerHTML = returnedHTML;
     //searchInput.value += `\t${numberWithCommas(matchArray.length)}`;
-    console.log(matchArray.length);
+
     if (e.target.value === '' || e.target.value === undefined){
         suggestions.style.visibility = "hidden";
     }
 }
 
+function displyNumberResults(e){
+    if (e.target.value === '' || e.target.value === undefined){
+        resultNumSpan.style.visibility = "hidden";
+        console.log('here');
+        return;
+    }
+    resultNumSpan.style.visibility = "visible";  
+    resultNumSpan.innerHTML = `${numberWithCommas(matchArray.length)} results`;
+}
+
 // TODO 
 // Display how many results are matched to the searched word
 // #Done#  Hide the list before search and after selecting the desired result
-// Sord the result with their population or other criteria
-// Add filter in the search bar
+// #Done# Sord the result with their population or other criteria
 
 searchInput.addEventListener('change', displayResults);
+//searchInput.addEventListener('change', displyNumberResults);
+
 searchInput.addEventListener('keyup', displayResults);
+searchInput.addEventListener('keyup', displyNumberResults);
+
+
+/* searchInput.addEventListener('change', displyNumberResults);
+searchInput.addEventListener('keyup', displyNumberResults); */

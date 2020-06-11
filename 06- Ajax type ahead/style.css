@@ -96,3 +96,9 @@ border-radius: 15px;
   width: 100%;
 }
 
+.number-results{
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
