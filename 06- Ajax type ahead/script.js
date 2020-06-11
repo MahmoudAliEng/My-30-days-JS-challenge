@@ -9,6 +9,8 @@ const sortSearchCity = document.querySelector('#sortSearchCity');
 const sortSearchState = document.getElementById('sortSearchState');
 const resultNumSpan = document.getElementById("number-results-span");
 
+
+
 // The coming data from the web
 const cities = [];
 let matchArray = [];
@@ -30,6 +32,8 @@ function findMatches(wordMatch, cities) {
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
+
+
 
 // Function that fill the result in HTML format
 function displayResults(e){
@@ -69,7 +73,6 @@ function displayResults(e){
 function displyNumberResults(e){
     if (e.target.value === '' || e.target.value === undefined){
         resultNumSpan.style.visibility = "hidden";
-        console.log('here');
         return;
     }
     resultNumSpan.style.visibility = "visible";  
@@ -77,9 +80,9 @@ function displyNumberResults(e){
 }
 
 // TODO 
-// Display how many results are matched to the searched word
 // #Done#  Hide the list before search and after selecting the desired result
 // #Done# Sord the result with their population or other criteria
+// #Done# Display how many results are matched to the searched word
 
 searchInput.addEventListener('change', displayResults);
 //searchInput.addEventListener('change', displyNumberResults);
