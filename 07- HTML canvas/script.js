@@ -14,14 +14,25 @@ ctx.lineWidth = 50;
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
+let hue = 0; // To apply the idea of changing the color while drawing
+let increasingWidth = true;
 
 function draw(e){
     if(!isDrawing) return; // stop running if the user is not clicking the mouse down
-    console.log(e);
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
+    hue++;
+    if (hue >= 360) hue = 0;
+
+    if (ctx.lineWidth >= 80 || ctx.lineWidth <= 1) {increasingWidth = !increasingWidth};
+    if(increasingWidth) {
+        ctx.lineWidth++;
+    } else {
+        ctx.increasingWidth--;
+    }
 
     [lastX, lastY] = [e.offsetX, e.offsetY]; // Using destructuring array to update our lastX and Y
      
