@@ -9,6 +9,7 @@ canvas.height = window.innerHeight;
 ctx.strokeStyle = "#BADA55";
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
+ctx.lineWidth = 50;
 
 let isDrawing = false;
 let lastX = 0;
@@ -21,10 +22,19 @@ function draw(e){
     ctx.moveTo(lastX, lastY);
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
+
+    [lastX, lastY] = [e.offsetX, e.offsetY]; // Using destructuring array to update our lastX and Y
+     
+
 }
+// This is the first event that happen
+// Triggering when the use click down the mouse
+canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    [lastX, lastY] = [e.offsetX, e.offsetY]; // To start drawing where the cursor is now not from 0
+}); 
 
 canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mousedown', () => isDrawing = true); // Triggering when the use click down the mouse
 canvas.addEventListener('mouseup', () => isDrawing = false); // And trigger off when they released the mouse up
 canvas.addEventListener('mouseout', () => isDrawing = false); // Trigger off also when they click the mouse but out of the browser
 
