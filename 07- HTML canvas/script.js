@@ -15,8 +15,12 @@ let lastX = 0;
 let lastY = 0;
 
 function draw(e){
+    if(!isDrawing) return; // stop running if the user is not clicking the mouse down
     console.log(e);
 }
 
 canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousedown', () => isDrawing = true); // Triggering when the use click down the mouse
+canvas.addEventListener('mouseup', () => isDrawing = false); // And trigger off when they released the mouse up
+canvas.addEventListener('mouseout', () => isDrawing = false); // Trigger off also when they click the mouse but out of the browser
 
