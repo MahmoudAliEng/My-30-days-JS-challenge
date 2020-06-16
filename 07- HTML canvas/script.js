@@ -17,6 +17,8 @@ let lastY = 0;
 let hue = 0; // To apply the idea of changing the color while drawing
 let increasingWidth = true;
 
+
+
 function draw(e){
     if(!isDrawing) return; // stop running if the user is not clicking the mouse down
     ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
@@ -31,19 +33,28 @@ function draw(e){
     if(increasingWidth) {
         ctx.lineWidth++;
     } else {
-        ctx.increasingWidth--;
+        ctx.lineWidth--;
     }
 
     [lastX, lastY] = [e.offsetX, e.offsetY]; // Using destructuring array to update our lastX and Y
      
 
 }
+
+function erase(e) {
+    // if(e.button === 2){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+//}
+}
+
 // This is the first event that happen
 // Triggering when the use click down the mouse
 canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
     [lastX, lastY] = [e.offsetX, e.offsetY]; // To start drawing where the cursor is now not from 0
 }); 
+
+canvas.addEventListener("contextmenu", erase);
 
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => isDrawing = false); // And trigger off when they released the mouse up
