@@ -5,14 +5,17 @@ let lastChecked;
 
 
 function handleClick(event){
+    let inBetween = false;
     // Check if the user is clicking on shift key and the input element is checked
-    if(event.shiftKey && event.target.checked){
-        let inBetween = false;
+    if(event.shiftKey && this.checked){
+        
         checkBoxes.forEach(checkBox => {
-            if( checkBox === this || checkBox === lastChecked) inBetween != inBetween;
+            if( checkBox === this || checkBox === lastChecked) {
+                inBetween = !inBetween;
+            }
+            if (inBetween) {checkBox.checked = true;}
         });
     }
-    console.log(event);
     lastChecked = this;
 }
 
