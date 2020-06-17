@@ -26,8 +26,20 @@ html {
     text-decoration: line-through;
   }
 
+  input:checked + label.uncheck-all-txt{
+    text-decoration: none;
+    background-color: wheat;
+  }
+
+
   input[type="checkbox"] {
     margin: 20px;
+  }
+
+  
+  label.uncheck-all-txt{
+    background-color: #F9F9F9;
+    text-decoration: line-through;
   }
 
   label {
@@ -40,3 +52,18 @@ html {
     font-weight: 200;
     border-left: 1px solid #D1E2FF;
   }
+
+  .all-ctrl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52vh;
+    margin: 0 auto;
+    margin-top: 1.5%;
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+    border: 1px solid #D1E2FF;
+    background-color: wheat;
+  }
+
+  
+  
