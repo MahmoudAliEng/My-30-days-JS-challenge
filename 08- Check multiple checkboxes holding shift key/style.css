@@ -64,14 +64,3 @@ html {
     border: 1px solid #D1E2FF;
     background-color: wheat;
   }
-
-  .attention-txt-container {
-    margin: 0 auto;
-    margin-top: 2%;
-    width: fit-content;
-    /* border: 1px solid red; */
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: red;
-    background-color: aliceblue;
-  }

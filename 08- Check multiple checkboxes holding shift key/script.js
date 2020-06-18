@@ -25,20 +25,35 @@ checkBoxes.forEach(checkBox => checkBox.addEventListener('click', handleClick));
 
 
 function handleCheckAll(event){
-
+   
+    
     if(checkAll.checked) {
         uncheckAll.checked = false;
         checkBoxes.forEach(checkBox => checkBox.checked = true);
     }
+
+    checkAll.checked = !checkAll.checked;
     
 }
 function handleUnheckAll(event){
+    
+    // console.log('erase clicked');
     
     if(uncheckAll.checked) {
         checkAll.checked = false;
         checkBoxes.forEach(checkBox => checkBox.checked = false);
     }
+
+    uncheckAll.checked = !uncheckAll.checked;
 }
 
 checkAll.addEventListener('click', handleCheckAll);
 uncheckAll.addEventListener('click', handleUnheckAll);
+
+
+/* if (checkAll.checked && uncheckAll.checked) {
+    attentionTxt.innerHTML = 'Pay attention only one must be selected atime';
+    checkAll.checked = false;
+    uncheckAll.checked = false;
+    return;
+} */
