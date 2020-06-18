@@ -1,8 +1,10 @@
 const checkBoxes = document.querySelectorAll('.inbox input[type=checkbox]');
+const checkAll = document.querySelector('#check-all-checkbox');
+const uncheckAll = document.querySelector('#uncheck-all-checkbox');
+const attentionTxt = document.querySelector('p.attention-txt');
 
 
 let lastChecked;
-
 
 function handleClick(event){
     let inBetween = false;
@@ -20,3 +22,23 @@ function handleClick(event){
 }
 
 checkBoxes.forEach(checkBox => checkBox.addEventListener('click', handleClick));
+
+
+function handleCheckAll(event){
+
+    if(checkAll.checked) {
+        uncheckAll.checked = false;
+        checkBoxes.forEach(checkBox => checkBox.checked = true);
+    }
+    
+}
+function handleUnheckAll(event){
+    
+    if(uncheckAll.checked) {
+        checkAll.checked = false;
+        checkBoxes.forEach(checkBox => checkBox.checked = false);
+    }
+}
+
+checkAll.addEventListener('click', handleCheckAll);
+uncheckAll.addEventListener('click', handleUnheckAll);
