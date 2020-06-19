@@ -1,3 +1,25 @@
+/* Importing font */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+/* Returning everythings to default */
 html, body {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .parameters {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2vh;
+    display: flex;
+    border: 2px solid red;
+    padding: 2vh;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5rem;
+  }
+
+  .changing-color-container{
+    border: 2px solid green;
+    margin: 0 auto;
   }
