@@ -1,7 +1,8 @@
 const canvas = document.querySelector("#draw");
 const changinColor = document.getElementById('changing-color-checkbox');
-const colorPicker =  document.getElementById('color-picker-input'); // Color 
-const colorPickerLbl = document.querySelector('label.color-picker');
+const colorPicker =  document.getElementById('color-picker-input'); // Color Picker
+const colorPickerLbl = document.querySelector('label.color-picker'); // Color Picker label
+const lineWidthInput = document.getElementById('line-width-input'); // Line width range input
 
 // Getting the context which is kind of the frame we will work on it
 const ctx = canvas.getContext("2d");
@@ -9,13 +10,12 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let color =colorPicker.value;
-
-
 
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
-ctx.lineWidth = 50;
+// Initiate line width
+
+
 
 let isDrawing = false;
 let lastX = 0;
@@ -25,6 +25,11 @@ let increasingWidth = true;
 
 
 function draw(e){
+
+    // Initiate the color
+    let color = colorPicker.value;
+    // Setting the line width
+    ctx.lineWidth = lineWidthInput.value;
     if(!isDrawing) return; // stop running if the user is not clicking the mouse down
     ctx.strokeStyle = color;
     ctx.beginPath();
@@ -37,6 +42,9 @@ function draw(e){
 
 
 function drawChangingColor(e){
+    
+    // Setting the line width
+    ctx.lineWidth = lineWidthInput.value;
     if(!isDrawing) return; // stop running if the user is not clicking the mouse down
     ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     ctx.beginPath();
@@ -84,7 +92,9 @@ canvas.addEventListener('mousemove', (e) => {
 });
 canvas.addEventListener('mouseup', () => isDrawing = false); // And trigger off when they released the mouse up
 canvas.addEventListener('mouseout', () => isDrawing = false); // Trigger off also when they click the mouse but out of the browser
-colorPicker.addEventListener('input', e =>  color = e.target.value); // Changing the color value when the color picker value changes
+
+// colorPicker.addEventListener('input', e =>  color = e.target.value); // Changing the color value when the color picker value changes
+
 // Hide color picker if color changing is selected and show it if not
 changinColor.addEventListener('change', e => {
     if(e.target.checked){
