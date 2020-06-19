@@ -1,14 +1,15 @@
 const canvas = document.querySelector("#draw");
-const changinColor = document.getElementById("changing-color-checkbox");
+const changinColor = document.getElementById('changing-color-checkbox');
 
 // Getting the context which is kind of the frame we will work on it
 const ctx = canvas.getContext("2d");
 // Setting the canvas width and height same as the window's 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+const colorInput =  document.getElementById('color-picker-input');
+let color =colorInput.value;
 
-let color = "#BADA55"
-
+colorInput.addEventListener('change', e =>  color = e.target.value); // Changing the color value
 
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
@@ -71,9 +72,9 @@ canvas.addEventListener('mousedown', (e) => {
 canvas.addEventListener("contextmenu", erase); // erase everything whenclicking the right button of the mouse
 
 canvas.addEventListener('mousemove', (e) => {
+    // Draw either by fixed color or changing color while drwaing
     if (changinColor.checked){
         drawChangingColor(e);
-        // return '';
     }
     else {
         draw(e);
