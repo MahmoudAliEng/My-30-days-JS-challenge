@@ -1,18 +1,19 @@
-const canvas = document.querySelector("#draw");
+const canvas = document.querySelector("#draw"); // Canvas element
 const changinColor = document.getElementById('changing-color-checkbox');
 const colorPicker =  document.getElementById('color-picker-input'); // Color Picker
 const colorPickerLbl = document.querySelector('label.color-picker'); // Color Picker label
 const lineWidthInput = document.getElementById('line-width-input'); // Line width range input
+const eraseButton = document.getElementById('erase-input'); // Erase everything button
 
 // Getting the context which is kind of the frame we will work on it
-const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext('2d');
 // Setting the canvas width and height same as the window's 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 
-ctx.lineJoin = "round";
-ctx.lineCap = "round";
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
 // Initiate line width
 
 
@@ -79,7 +80,7 @@ canvas.addEventListener('mousedown', (e) => {
     [lastX, lastY] = [e.offsetX, e.offsetY]; // To start drawing where the cursor is now not from 0
 }); 
 
-canvas.addEventListener("contextmenu", erase); // erase everything whenclicking the right button of the mouse
+eraseButton.addEventListener("click", erase); // erase everything whenclicking the right button of the mouse
 
 canvas.addEventListener('mousemove', (e) => {
     // Draw either by fixed color or changing color while drwaing
