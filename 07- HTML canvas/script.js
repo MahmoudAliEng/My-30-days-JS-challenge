@@ -1,15 +1,17 @@
 const canvas = document.querySelector("#draw");
 const changinColor = document.getElementById('changing-color-checkbox');
+const colorPicker =  document.getElementById('color-picker-input'); // Color 
+const colorPickerLbl = document.querySelector('label.color-picker');
 
 // Getting the context which is kind of the frame we will work on it
 const ctx = canvas.getContext("2d");
 // Setting the canvas width and height same as the window's 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-const colorInput =  document.getElementById('color-picker-input');
-let color =colorInput.value;
 
-colorInput.addEventListener('change', e =>  color = e.target.value); // Changing the color value
+let color =colorPicker.value;
+
+
 
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
@@ -82,4 +84,15 @@ canvas.addEventListener('mousemove', (e) => {
 });
 canvas.addEventListener('mouseup', () => isDrawing = false); // And trigger off when they released the mouse up
 canvas.addEventListener('mouseout', () => isDrawing = false); // Trigger off also when they click the mouse but out of the browser
-
+colorPicker.addEventListener('input', e =>  color = e.target.value); // Changing the color value when the color picker value changes
+// Hide color picker if color changing is selected and show it if not
+changinColor.addEventListener('change', e => {
+    if(e.target.checked){
+        colorPicker.style.visibility  = 'hidden';
+        colorPickerLbl.style.visibility  = 'hidden';
+    }
+    if(!e.target.checked){
+        colorPicker.style.visibility  = 'visible';
+        colorPickerLbl.style.visibility  = 'visible';
+    }
+})
