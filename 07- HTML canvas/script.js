@@ -8,8 +8,14 @@ const eraseButton = document.getElementById('erase-input'); // Erase everything 
 // Getting the context which is kind of the frame we will work on it
 const ctx = canvas.getContext('2d');
 // Setting the canvas width and height same as the window's 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+console.log(window.innerWidth );
+canvas.width = window.innerWidth * .9;
+canvas.height = window.innerHeight * .8;
+canvas.style.margin = '0 auto';
+/* canvas.style.width = '90%';
+canvas.style.height = '66vh'; */
+canvas.style.backgroundColor = 'rgba(150, 250, 250, 0.1)';
+canvas.style.border = '2px solid black';
 
 
 ctx.lineJoin = 'round';

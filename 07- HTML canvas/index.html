@@ -7,29 +7,28 @@
   <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="parameters">
+  <div class="container">
+    <div class="parameters">
+      <div class="changing-color-container">
+        <input type="checkbox" name="changing-color" id="changing-color-checkbox">
+        <label for="changing-color-checkbox" class="changing-color">Color changing while drawing</label>
+      </div>
+      <div class="color-picker-container">
+        <input type="color" name="color-picker" id="color-picker-input">
+        <label for="color-picker" class="color-picker">Choose your favorite color</label>
+      </div>
+      <div class="line-width-container">
+        <input type="range" min="10" max="90" step="5" name="line-width" id="line-width-input">
+        <label for="line-width" class="line-width">Line width</label>
+      </div>
+      <div class="erase-container">
+        <input type="submit" name="erase" id="erase-input" value="Erase everything">
+      </div>
+    </div>
   
-    <div class="changing-color-container">
-      <input type="checkbox" name="changing-color" id="changing-color-checkbox">
-      <label for="changing-color-checkbox" class="changing-color">Color changing while drawing</label>
-    </div>
-    <div class="color-picker-container">
-      <input type="color" name="color-picker" id="color-picker-input">
-      <label for="color-picker" class="color-picker">Choose your favorite color</label>
-    </div>
-    <div class="line-width-container">
-      <input type="range" min="10" max="90" step="5" name="line-width" id="line-width-input">
-      <label for="line-width" class="line-width">Line width</label>
-    </div>
-    <div class="erase-container">
-      <input type="submit" name="erase" id="erase-input" value="Erase everything">
-    </div>
-    
-    
+    <canvas id="draw"></canvas>
   </div>
-
-
-  <canvas id="draw" width="800" height="800"></canvas>
+  
 
 
 <script type="text/javascript" src="script.js">
