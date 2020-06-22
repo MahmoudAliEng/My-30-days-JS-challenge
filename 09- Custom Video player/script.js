@@ -12,6 +12,9 @@ const ranges = player.querySelectorAll('.player__slider');
 function togglePlay(){
     const method = video.paused ? 'play' : 'pause';
     video[method]();
+
+    const icon = video.paused ? '►' : '❚ ❚';
+    toggle.innerText = icon;
 }
 
 /* Hook up listenners */
