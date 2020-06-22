@@ -17,6 +17,16 @@ function togglePlay(){
     toggle.innerText = icon;
 }
 
+function skip(){
+video.currentTime += parseFloat(this.dataset.skip);
+}
+
 /* Hook up listenners */
 video.addEventListener('click', togglePlay);
 toggle.addEventListener('click', togglePlay);
+// Playing and pausing the video just with the space bar key
+document.addEventListener('keydown', function(event){
+    event.keyCode == 32  ? togglePlay() : console.log();
+});
+
+skipButtons.forEach(skipButton => skipButton.addEventListener('click', skip));
