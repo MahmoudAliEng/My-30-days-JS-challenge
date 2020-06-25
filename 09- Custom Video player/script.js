@@ -32,6 +32,11 @@ function handleProgress(){
     progressBar.style.flexBasis = `${playedPercent}%`;
 }
 
+function scrub(event){
+    // Calculating current time
+    const scrubTime =  (event.offsetX / progress.offsetWidth ) * video.duration;
+    video.currentTime = scrubTime;
+}
 /* Our event listenners */
 
 // Play and pause video by clicking on video and toggle buttons 
@@ -53,3 +58,5 @@ skipButtons.forEach(skipButton => skipButton.addEventListener('click', skip));
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 // Same as above but this got it in real time not as 'change' it's only update when we mouseup
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+// Moving the progress to wherere we click
+progress.addEventListener('click', scrub);
