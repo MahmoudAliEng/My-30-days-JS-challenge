@@ -18,15 +18,31 @@ function togglePlay(){
 }
 
 function skip(){
+    // Advance or go backward by the amount saved in the data-skip of skip buttons
 video.currentTime += parseFloat(this.dataset.skip);
 }
 
-/* Hook up listenners */
+function handleRangeUpdate (){
+    // Update the range input by the actuel value
+    video[this.name] = this.value;
+}
+
+/* Our event listenners */
+
+// Play and pause video by clicking on video and toggle buttons 
 video.addEventListener('click', togglePlay);
 toggle.addEventListener('click', togglePlay);
-// Playing and pausing the video just with the space bar key
-document.addEventListener('keydown', function(event){
-    event.keyCode == 32  ? togglePlay() : console.log();
-});
 
+document.addEventListener('keydown', function(event){
+    // Playing and pausing the video just with the space bar key
+    event.keyCode == 32  ? togglePlay() : console.log();
+    // Skip forward or backward if right or left keys are pressed respect.
+    // event.keyCode == 37 || event.keyCode == 39 ? skip() : console.log(); 
+
+});
+// Skip backward and forward by clicking on skip button
 skipButtons.forEach(skipButton => skipButton.addEventListener('click', skip));
+// Listen to every change for the range inputs
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
+// Same as above but this got it in real time not as 'change' it's only update when we mouseup
+ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
