@@ -58,5 +58,11 @@ skipButtons.forEach(skipButton => skipButton.addEventListener('click', skip));
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 // Same as above but this got it in real time not as 'change' it's only update when we mouseup
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+
+let mousedown = false;
 // Moving the progress to wherere we click
 progress.addEventListener('click', scrub);
+// Do not move the progress untill the mouse is down
+progress.addEventListener('mousemove', event => mousedown && scrub(event));
+progress.addEventListener('mousedown', () => mousedown = true);
+progress.addEventListener('mouseup', () => mousedown = false);
