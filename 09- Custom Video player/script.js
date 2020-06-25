@@ -27,10 +27,17 @@ function handleRangeUpdate (){
     video[this.name] = this.value;
 }
 
+function handleProgress(){
+    const playedPercent = (video.currentTime / video.duration) * 100;
+    progressBar.style.flexBasis = `${playedPercent}%`;
+}
+
 /* Our event listenners */
 
 // Play and pause video by clicking on video and toggle buttons 
 video.addEventListener('click', togglePlay);
+// Listen to every advance in the current time of the video and modify the progress bar to show the correct percent
+video.addEventListener('timeupdate', handleProgress);
 toggle.addEventListener('click', togglePlay);
 
 document.addEventListener('keydown', function(event){
